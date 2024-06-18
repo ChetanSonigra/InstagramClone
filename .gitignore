@@ -1,4 +1,4 @@
 *env
 *pycache*
-*db
+*.db
 config.py
