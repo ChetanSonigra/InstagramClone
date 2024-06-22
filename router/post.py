@@ -35,7 +35,7 @@ def upload_image(image: UploadFile = File(...), current_user: UserAuth = Depends
     filepath = f"images/{filename}"
     with open(filepath, "w+b") as buffer:
         shutil.copyfileobj(image.file, buffer)
-    return f"File uploaded: {filepath}"
+    return {'filepath': filepath}
 
 
 @router.delete('/delete/{id}')
