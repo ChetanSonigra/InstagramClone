@@ -21,8 +21,9 @@ models.Base.metadata.create_all(engine)
 
 app.mount("/images",StaticFiles(directory="images"),name='images')
 
-
-origins = ['http://localhost:3000']
+import os
+origin_url = os.environ.get('INSTACLONE_FASTAPI_CORS_ORIGIN')
+origins = [origin_url]
 
 app.add_middleware(
     CORSMiddleware,
